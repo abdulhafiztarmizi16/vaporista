@@ -22,6 +22,14 @@ class User_model extends CI_Model
 		$query = $this->db->get();
 		return $query->row_array();
 	}
+	public function getPoin()
+	{
+		$this->db->select('poin');
+		$this->db->from($this->table);
+		$this->db->where('email', $this->session->userdata('email'));
+		$query = $this->db->get();
+		return $query->row_array();
+	}
 	public function getBy()
 	{
 		$this->db->from($this->table);
@@ -36,7 +44,8 @@ class User_model extends CI_Model
 	}
 	public function update($where, $data)
 	{
-		$this->db->update($this->table, $data, $where);
+		$this->db->update($this->table, $data);
+		$this->db->where('id', $where);
 		return $this->db->affected_rows();
 	}
 	public function delete($id)

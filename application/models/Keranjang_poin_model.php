@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Keranjang_model extends CI_Model
+class keranjang_poin_model extends CI_Model
 {
-	public $table = 'keranjang';
-	public $id = 'keranjang.id';
+	public $table = 'keranjang_poin';
+	public $id = 'keranjang_poin.id';
 	public function __construct()
 	{
 		parent::__construct();
@@ -13,7 +13,7 @@ class Keranjang_model extends CI_Model
 	{
 		$id = $this->session->userdata('id');
 		$this->db->select('k.*, p.nama as nama,p.poin as poin, p.harga as harga');
-		$this->db->from('keranjang k');
+		$this->db->from('keranjang_poin k');
 		$this->db->join('kue p', 'k.id_kue = p.id');
 		$this->db->where('k.id_user', $id);
 		$query = $this->db->get();
@@ -51,11 +51,9 @@ class Keranjang_model extends CI_Model
 	}
 	public function jumlah()
 	{
-		$id_user_sekarang = $this->session->userdata('id');
-		$this->db->from($this->table);
-		$this->db->where('id_user', $id_user_sekarang);
-		$query = $this->db->get();
-		// return $query->row_array();
-		return $query->num_rows(); 
+		$id = $this->session->userdata('id');
+		$query = $this->db->get($this->table);
+		$this->db->where('id_user', $id);
+		return $query->num_rows();
 	}
 }

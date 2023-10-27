@@ -9,7 +9,7 @@
 				<div class="col-md-12">
 					<?php $i = 1; ?>
 					<?php foreach ($poin as $us) : ?>
-						<a href="<?= base_url('Profil/keranjang/') . $us['id'] ?>" style="text-decoration: none; color:inherit;" >
+						<a href="<?= base_url('Profil/keranjang_poin/') . $us['id'] ?>" style="text-decoration: none; color:inherit;" >
 							<div class="col-md-4 col-sm-4">
 								<div class="card text-black" style="height: fit-content;">
 									<!-- <i class="fab fa-apple fa-lg pt-3 pb-1 px-3"></i> -->
