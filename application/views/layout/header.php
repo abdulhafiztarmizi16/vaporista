@@ -81,6 +81,14 @@
 									</a>
 									<!-- Dropdown - Alerts -->
 								</li>
+								<!-- <li class="nav-item dropdown no-arrow mx-1">
+									<a class="nav-link dropdown-toggle" href="<?= base_url('Profil/detail'); ?>">
+										<i class="fas fa-shopping-cart fa-fw"></i>
+										<span class="badge badge-danger badge-counter">
+											<?= $jlh1 ?>
+										</span>
+									</a>
+								</li> -->
 
 							<?php } ?>
 					</li>
@@ -171,12 +179,12 @@
 								<span>Produk</span>
 							</a>
 						</li>
-						<!-- <li class="sub-menu">
+						<li class="sub-menu">
 							<a href="<?= site_url('profil/tukar_poin/') ?>">
 								<i class="fa fa-gift"></i>
 								<span>Tukar Poin</span>
 							</a>
-						</li> -->
+						</li>
 						<li class="sub-menu">
 							<a href="<?= site_url('auth/logout') ?>">
 								<i class="fa fa-cogs"></i>

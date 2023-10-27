@@ -6,6 +6,8 @@
 				<div class="col-md-12">
 					<?= $this->session->flashdata('message');
 					?>
+					<?= $this->session->flashdata('danger');
+					?>
 				</div>
 				<div class="col-md-12">
 					<table class="table">
@@ -14,14 +16,14 @@
 								<td>Tanggal</td>
 								<td>Nama Produk</td>
 								<td>Poin</td>
-								<td>Harga</td>
 								<td>Jumlah</td>
-								<td>Sub Total</td>
+								<td>Total Poin</td>
+								<!-- <td>Sub Total</td> -->
 								<td>Aksi</td>
 							</tr>
 						</thead>
 						<tbody>
-							<form action="<?= base_url('Profil/pesanan'); ?>" method="POST" enctype="multipart/form-data">
+							<form action="<?= base_url('Profil/pesanan_poin'); ?>" method="POST" enctype="multipart/form-data">
 								<?php
 								function rupiah($angka)
 								{
@@ -37,7 +39,7 @@
 								// $total_p = 0; ?>
 								<?php foreach ($keranjang as $us) :
 									$total_bayar += $us['total'];
-									$total_tpoin += $us['tpoin'];
+									// $total_tpoin += $us['tpoin'];
 
 									$tchasback = $total_bayar * $chasback;
 									$ttotal = $total_bayar - $tchasback;
@@ -46,20 +48,22 @@
 									<tr>
 										<td><?= $us['tanggal']; ?></td>
 										<td><?= $us['nama']; ?></td>
-										<td><?= $us['tpoin']; ?></td>
-										<td>Rp. <?= number_format($us['harga'], 2, ',', '.');?></td>
+										<td><?= $us['poin']; ?></td>
+										<!-- <td>Rp. <?= number_format($us['harga'], 2, ',', '.');?></td> -->
 										<td><?= $us['jumlah']; ?></td>
-										<td>Rp. <?= number_format($us['total'], 2, ',', '.');?></td>
-										<td><a href="<?= base_url('profil/delkeranjang/') . $us['id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></a></td>
+										<td><?= number_format($us['total']);?></td>
+										<td><a href="<?= base_url('profil/delkeranjangpoin/') . $us['id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></a></td>
 									</tr>
 									<input type="hidden" name="kue[]" value="<?= $us['id_kue']; ?>">
 									<input type="hidden" name="tanggal" value="<?= date('d/m/Y') ?>">
-									<input type="hidden" name="harga" value="<?= $us['harga']; ?>">
+									
 									<input type="hidden" name="jumlah_p[]" value="<?= $us['jumlah']; ?>">
 									<input type="hidden" name="total_p[]" value="<?= $us['total']; ?>">
-									<input type="hidden" name="total_tpoin[]" value="<?= $us['tpoin']; ?>">
+									<!-- <input type="hidden" name="total_tpoin[]" value="<?= $us['poin']; ?>"> -->
 									<?php $i++; ?>
 								<?php endforeach; ?>
+								<input type="hidden" name="p" value="<?= $poin['poin']; ?>">
+								<input type="hidden" name="t" value="<?= $total_bayar ?>">
 								<tr>
 									<td>Alamat Pengiriman</td>
 									<td colspan="5"><input name="alamat" type="text" class="form-control" id="alamat"></td>
@@ -68,7 +72,7 @@
 									<td>Pengambilan</td>
 									<td colspan="5">
 										<select name="pembayaran" id="pembayaran" class="form-control">
-											<option value="" hidden>Pilih pengambilan</option>
+											<option value=""hidden>Pilih pengambilan</option>
 											<option value="Ambil Di Toko">Ambil Di Toko</option>
 											<option value="Dikirim Ke Alamat">Dikirim Ke alamat</option>
 											
@@ -108,11 +112,11 @@
 									<td colspan="5"><input name="keterangan" type="number" class="form-control" id="keterangan" required></td>
 								</tr>
 								<tr>
-									<td colspan="4" align="right"><strong>Total Poin : </strong></td>
-									<td><?= $total_tpoin ?></td>                
-									<tr></tr>
-									<td colspan="4" align="right"><strong>JumlahHarga : </strong></td>
-									<td><?= rupiah($total_bayar); ?></td>
+									<!-- <td colspan="4" align="right"><strong>Total Poin : </strong></td>
+									<td><?= $total_tpoin ?></td>                 -->
+									<!-- <tr></tr> -->
+									<td colspan="4" align="right"><strong>Jumlah Poin Yang Akan Ditukar : </strong></td>
+									<td><?= $total_bayar; ?></td>
 									<!-- <tr></tr>
 									<td colspan="4" align="right"><strong>Total Cashback : </strong></td>
 									<td><?= rupiah($tchasback); ?></td>
@@ -123,7 +127,7 @@
 									<td>
 										<input type="hidden" name="no_penjualan" value="PJ<?= time() ?>" readonly class="form-control">
 										<input type="hidden" name="bayar" value="<?= $total_bayar; ?>">
-										<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Pesan</button>
+										<button type="submit" class="btn btn-primary" id='tukar_poin'><i class="fa fa-save"></i>&nbsp;&nbsp;Pesan</button>
 									</td>
 								</tr>
 							</form>

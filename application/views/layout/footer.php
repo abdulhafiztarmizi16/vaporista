@@ -75,7 +75,61 @@
 			$('input[name="total"]').val('')
 		}
 	});
+	$(document).ready(function() {
+		$("#jumlah_poin").on('keydown keyup change blur', function() {
+			// var harga = parseFloat($("#harga").val());
+			var jumlah = parseFloat($("#jumlah_poin").val());
+			var poin = parseFloat($("#poin").val());
+
+			// var tpoin = poin * jumlah;
+			// $("#tpoin").val(tpoin);
+
+			var total = poin * jumlah;
+			$("#total").val(total);
+			if (parseInt($('input[name="stok"]').val()) <= parseInt(jumlah)) {
+				alert('stok tidak tersedia! stok tersedia : ' + parseInt($('input[name="stok"]').val()))
+				reset()
+			}
+		});
+
+		function reset() {
+			$('input[name="jumlah_poin"]').val('')
+			$('input[name="total"]').val('')
+		}
+	});
+	document.getElementById('pembayaran').addEventListener('change', function() {
+        var manualOptionDiv = document.getElementById('toko');
+        if (this.value === 'Ambil Di Toko') {
+            manualOptionDiv.style.display = '';
+        } else {
+            manualOptionDiv.style.display = 'none';
+        }
+    });
 </script>
+<!-- <script>
+		$(document).ready(function() {
+			$("#tukar_poin").click(function(){
+			// var harga = parseFloat($("#harga").val());
+				var jumlah = parseFloat($("#p").val());
+				var poin = parseFloat($("#t").val());
+
+				// var tpoin = poin * jumlah;
+				// $("#tpoin").val(tpoin);
+
+				// var total = poin * jumlah;
+				// $("#total").val(total);
+				if (p<=t) {
+					alert('Poin tidak mencukupi untuk ditukar, Silahkan cek poin anda terlebih dahulu!');
+					reset()
+				}
+			});
+			
+			function reset() {
+				$('input[name="keterangan"]').val('');
+				// $('input[name="total"]').val('')
+			}
+		}); -->
+<!-- </script> -->
 <script type="text/javascript">
 	var ctx = document.getElementById('myChart').getContext('2d');
 	var chart = new Chart(ctx, {
