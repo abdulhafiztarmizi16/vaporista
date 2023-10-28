@@ -174,7 +174,7 @@ class Kue extends CI_Controller
 				}
 			}
 			$this->Kue_model->insert($data, $upload_image);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Kue Berhasil Ditambah!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Produk Berhasil Ditambah!</div>');
 			redirect('Kue');
 		}
 	}
@@ -197,9 +197,9 @@ class Kue extends CI_Controller
 		$this->Kue_model->delete($id);
 		$error = $this->db->error();
 		if ($error['code'] != 0) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon fas fa-info-circle"></i>Data Kue tidak dapat dihapus (sudah berelasi)!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon fas fa-info-circle"></i>Data produk poin tidak dapat dihapus (sudah berelasi)!</div>');
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fas fa-check-circle"></i>Data Kue Berhasil Dihapus!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fas fa-check-circle"></i>Data produk poin Berhasil Dihapus!</div>');
 		}
 		redirect('Kue');
 	}

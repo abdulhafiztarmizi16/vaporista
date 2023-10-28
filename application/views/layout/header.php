@@ -143,16 +143,22 @@
 								<span>Produk</span>
 							</a>
 						</li>
-						<!-- <li class="sub-menu">
+						<li class="sub-menu">
 							<a href="<?= site_url('Poin/') ?>">
 								<i class="fa fa-gift"></i>
 								<span>Produk Poin</span>
 							</a>
-						</li> -->
+						</li>
 						<li class="sub-menu">
 							<a href="<?= site_url('Penjualan/') ?>">
 								<i class="fa fa-tasks"></i>
 								<span>Penjualan</span>
+							</a>
+						</li>
+						<li class="sub-menu">
+							<a href="<?= site_url('tukar_poin/') ?>">
+								<i class="fa fa-tasks"></i>
+								<span>Penukaran Poin</span>
 							</a>
 						</li>
 						<!-- <li class="sub-menu">

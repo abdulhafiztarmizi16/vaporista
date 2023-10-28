@@ -7,7 +7,7 @@
 				</div>
 				<div class="float-right">
 					<h1 class="h3 mb-4 text-gray 800">
-						<a href="<?= base_url(); ?>Poin/tambah" class="btn btn-info mb-2">Tambah Kue</a>
+						<a href="<?= base_url(); ?>Poin/tambah" class="btn btn-info mb-2">Tambah Produk Poin</a>
 					</h1>
 				</div>
 			</div>

@@ -6,7 +6,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-8 ">
 					<div class="form-panel">
-					<h4 class="mb"><i class="fa fa-angle-right"></i> Form Tambah Kue</h4>
+					<h4 class="mb"><i class="fa fa-angle-right"></i> Form Tambah Produk Poin</h4>
 							<form action="" method="POST" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="id_toko">ID Toko</label>
@@ -19,7 +19,7 @@
 									<?= form_error('id_toko', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
-									<label for="kategori">Kategori Kue</label>
+									<label for="kategori">Kategori Produk</label>
 									<select name="kategori" id="kategori" value="<?= set_value('kategori'); ?>" class="form-control">
 										<option value="">Pilih Kategori</option>
 										<?php foreach ($kategori as $k) : ?>
@@ -30,7 +30,7 @@
 								</div>
 								<div class="form-group">
 									<label for="nama">Nama</label>
-									<input name="nama" type="text" value="<?= set_value('nama'); ?>" class="form-control" id="nama" placeholder="Nama Kue">
+									<input name="nama" type="text" value="<?= set_value('nama'); ?>" class="form-control" id="nama" placeholder="Nama Produk">
 									<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
@@ -39,9 +39,9 @@
 									<?= form_error('deskripsi', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
-									<label for="rating">Rating</label>
-									<input name="rating" value="<?= set_value('rating'); ?>" type="number" class="form-control" id="rating" placeholder="Rating">
-									<?= form_error('rating', '<small class="text-danger pl-3">', '</small>'); ?>
+									<label for="poin">Poin</label>
+									<input name="poin" value="<?= set_value('poin'); ?>" type="number" class="form-control" id="poin" placeholder="Poin">
+									<?= form_error('poin', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
 									<label for="tanggal">Tanggal Masuk</label>
@@ -54,15 +54,15 @@
 									<?= form_error('status', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
-									<label for="jumlah">Jumlah</label>
+									<label for="jumlah">Jumlah Stok</label>
 									<input name="stok" value="<?= set_value('stok'); ?>" type="number" class="form-control" id="stok" placeholder="Jumlah">
 									<?= form_error('stok', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label for="harga">Harga</label>
 									<input name="harga" type="number" value="<?= set_value('harga'); ?>" class="form-control" id="harga" placeholder="Harga">
 									<?= form_error('harga', '<small class="text-danger pl-3">', '</small>'); ?>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label for="kompetensi">Gambar</label>
 									<div class="custom-file">
@@ -70,8 +70,8 @@
 										<label for="gambar" class="custom-file-label">Choose File</label>
 									</div>
 								</div>
-								<a href="<?= base_url('Kue') ?>" class="btn btn-danger">Tutup</a>
-								<button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Kue</button>
+								<a href="<?= base_url('Poin') ?>" class="btn btn-danger">Tutup</a>
+								<button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Produk Poin</button>
 							</form>
 						</div>
 					</div>

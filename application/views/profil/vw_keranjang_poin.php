@@ -64,11 +64,11 @@
 											</div>
 											<div class="form-group">
 												<label for="jumlah_poin">Jumlah</label>
-												<input type="number" name="jumlah_poin" id="jumlah_poin" class="form-control" min='1' value='0'>
+												<input type="number" name="jumlah_poin" id="jumlah_poin" class="form-control" min='1'>
 												<?= form_error('jumlah', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group">
-												<label for="total">Total Harga</label>
+												<label for="total">Total Poin</label>
 												<input type="text" name="total" id="total" readonly class="form-control" value="0">
 											</div>
 											<button type="submit" id="tambah" name="tambah" class="btn btn-primary float-right">Tambah Ke Keranjang</button>

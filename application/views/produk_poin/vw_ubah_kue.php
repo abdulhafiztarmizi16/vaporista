@@ -5,7 +5,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-8 ">
 						<div class="form-panel">
-						<h4 class="mb"><i class="fa fa-angle-right"></i> Form Ubah Kue</h4>
+						<h4 class="mb"><i class="fa fa-angle-right"></i> Form Ubah Produk Poin</h4>
 							<form action="" method="POST" enctype="multipart/form-data">
 								<input type="hidden" name="id" value="<?= $poin['id']; ?>">
 								<div class="form-group">
@@ -20,7 +20,7 @@
 									<?= form_error('id_toko', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
-									<label for="kategori">Kategori Kue</label>
+									<label for="kategori">Kategori Produk</label>
 									<select name="kategori" id="kategori" class="form-control">
 										<?php foreach ($kategori as $k) : ?>
 											<option value="<?= $k['id']; ?>" <?php if ($poin['kategori'] == $k['id']) {
@@ -31,8 +31,8 @@
 									<?= form_error('kategori', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
-									<label for="nama">Nama Kue</label>
-									<input value="<?= $poin['nama']; ?>" name="nama" type="text" class="form-control" id="nama" placeholder="Nama kue">
+									<label for="nama">Nama Produk</label>
+									<input value="<?= $poin['nama']; ?>" name="nama" type="text" class="form-control" id="nama" placeholder="Nama produk">
 									<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
@@ -41,15 +41,15 @@
 									<?= form_error('deskripsi', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
-									<label for="rating">Rating</label>
-									<input value="<?= $poin['rating']; ?>" name="rating" type="number" class="form-control" id="rating" placeholder="Rating">
-									<?= form_error('rating', '<small class="text-danger pl-3">', '</small>'); ?>
+									<label for="poin">Poin</label>
+									<input value="<?= $poin['poin']; ?>" name="poin" type="number" class="form-control" id="poin" placeholder="Poin">
+									<?= form_error('poin', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label for="harga">Harga</label>
 									<input value="<?= $poin['harga']; ?>" name="harga" type="number" class="form-control" id="harga" placeholder="Harga">
 									<?= form_error('harga', '<small class="text-danger pl-3">', '</small>'); ?>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label for="tanggal">Tanggal Masuk</label>
 									<input value="<?= $poin['tanggal']; ?>" name="tanggal" type="date" class="form-control" id="tanggal" placeholder="Tanggal">
@@ -61,7 +61,7 @@
 									<?= form_error('status', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
 								<div class="form-group">
-									<label for="jumlah">Jumlah</label>
+									<label for="jumlah">Jumlah Stok</label>
 									<input value="<?= $poin['stok']; ?>" name="stok" type="number" class="form-control" id="stok" placeholder="Jumlah">
 									<?= form_error('stok', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
@@ -73,8 +73,8 @@
 										<label for="gambar" class="custom-file-label">Choose File</label>
 									</div>
 								</div>
-								<a href="<?= base_url('Kue') ?>" class="btn btn-danger">Tutup</a>
-								<button type="submit" name="tambah" class="btn btn-primary float-right">Ubah Kategori</button>
+								<a href="<?= base_url('Poin') ?>" class="btn btn-danger">Tutup</a>
+								<button type="submit" name="tambah" class="btn btn-primary float-right">Ubah Produk</button>
 							</form>
 						</div>
 					</div>
