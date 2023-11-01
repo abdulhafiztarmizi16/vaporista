@@ -26,7 +26,7 @@
 <div class="products">
     <div class="container">
         <div class="row">
-            <!-- <div class="col-md-12">
+            <div class="col-md-12">
                 <div class="filters">
                     <ul>
                         <li class="active" data-filter="*">
@@ -43,7 +43,7 @@
                         </li>
                     </ul>
                 </div>
-            </div> -->
+            </div>
 
             <?php
             // Define the number of items per page
