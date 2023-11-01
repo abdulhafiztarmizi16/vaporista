@@ -1,4 +1,4 @@
-<section id="main-content">
+<section class="container-fluid">
 	<section class="wrapper site-min-height">
 		<div class="container-fluid">
 			<div class="clearfix">

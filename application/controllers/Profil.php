@@ -55,9 +55,9 @@ class Profil extends CI_Controller
 		$data['jlh'] = $this->Keranjang_model->jumlah();
 
 		// var_dump($data['poin']);die();
-		$this->load->view('layout/header', $data);
+		$this->load->view('layout/user_header', $data);
 		$this->load->view('profil/vw_p_tukar_poin', $data);
-		$this->load->view('layout/footer', $data);
+		$this->load->view('layout/user_footer', $data);
 	}
 	public function keranjang($id)
 	{
@@ -274,10 +274,10 @@ class Profil extends CI_Controller
 			// echo json_encode($data);
 			$this->Keranjang_model->delete_all($id_us);
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pesanan Berhasil dibuat!</div>');
-			redirect('Profil/kue');
+			redirect('product');
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pesanan Gagal dibuat!</div>');
-			redirect('Profil/kue');
+			redirect('product');
 		}
 	}
 	public function pesanan_poin()
@@ -403,10 +403,10 @@ class Profil extends CI_Controller
 				$this->Keranjang_poin_model->delete_all($id_us);
 				$this->User_model->update($id_us,$data_user);
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pesanan Berhasil dibuat!</div>');
-				redirect('Profil/tukar_poin');
+				redirect('penukaran');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Pesanan Gagal dibuat!</div>');
-				redirect('Profil/tukar_poin');
+				redirect('penukaran');
 			}
 		}
 	}
@@ -446,10 +446,32 @@ class Profil extends CI_Controller
 	{
 		$data['judul'] = "Data Tukar Poin";
 		$data['user'] = $this->User_model->getBy();
-		$data['pembelian'] = $this->Tukar_model->getByUser();
+		$data['pertukaran'] = $this->Tukar_model->getByUser();
 		$data['jlh'] = $this->Keranjang_model->jumlah();
 		$this->load->view('layout/header', $data);
 		$this->load->view('profil/pertukaran_user', $data);
 		$this->load->view('layout/footer', $data);
+	}
+	public function statustukar($id)
+	{
+		$data['judul'] = "Detail Data pertukaran";
+		$data['user'] = $this->User_model->getBy();
+		$data['pertukaran'] = $this->Tukar_model->getByUser2($id);
+		$data['detailbeli'] = $this->Detail_tukar_model->getByUser($id);
+		$data['jlh'] = $this->Keranjang_model->jumlah();
+		$this->form_validation->set_rules('status', 'Status', 'required', [
+			'required' => 'Status Wajib Diisi'
+		]);
+		if ($this->form_validation->run() == false) {
+			$this->load->view("layout/header", $data);
+			$this->load->view("profil/detail_beli", $data);
+			$this->load->view("layout/footer");
+		} else {
+			$status = $this->input->post('status');
+			$idp = $this->input->post('no_penjualan');
+			$this->Penjualan_model->updatestatus($status, $idp);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Status berhasil diubah</div>');
+			redirect('Profil/pembelian');
+		}
 	}
 }

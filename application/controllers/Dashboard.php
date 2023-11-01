@@ -20,7 +20,6 @@ class Dashboard extends CI_Controller
         $data['kue'] = $this->Kue_model->tkue();
         // $data['totalb'] = $this->Detail_model->charts();
         $data['us'] = $this->User_model->tuser();
-
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view("layout/header", $data);
         $this->load->view("auth/dashboard", $data);

@@ -1,4 +1,4 @@
-<section id="main-content">
+<section class="container-fluid">
 	<section class="wrapper site-min-height">
 		<div class="container-fluid">
 			<h1 class="h3 mb-4 text-gray-800"><?php echo $judul; ?></h1>

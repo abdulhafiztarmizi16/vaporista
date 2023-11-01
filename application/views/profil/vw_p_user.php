@@ -1,4 +1,4 @@
-<section id="main-content">
+<section class="container-fluid">
 	<section class="wrapper site-min-height">
 		<div class="container-fluid">
 			<!-- Page Heading -->
@@ -34,6 +34,9 @@
 															<?php } ?>
 														<?php endforeach; ?></td>
 												</span>
+											</div>
+											<div class="d-flex justify-content-between">
+												<span>Status</span><span><?= $us['status'] ?></span>
 											</div>
 										</div>
 										<div class="d-flex justify-content-between total font-weight-bold mt-4">

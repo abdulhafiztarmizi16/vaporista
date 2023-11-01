@@ -1,4 +1,4 @@
-<section id="main-content">
+<section class="container-fluid">
 	<section class="wrapper site-min-height">
 		<div class="container-fluid">
 			<h1 class="h3 mb-4 text-gray-800"><?php echo $judul; ?></h1>
@@ -123,6 +123,7 @@
 									<td>
 										<input type="hidden" name="no_penjualan" value="PJ<?= time() ?>" readonly class="form-control">
 										<input type="hidden" name="bayar" value="<?= $total_bayar; ?>">
+										<a href="<?= base_url('product')?>" class="btn btn-outline-primary"><i class="fas fa-shopping-cart fa-fw"></i>&nbsp;&nbsp;Tambah Keranjang</a>
 										<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Pesan</button>
 									</td>
 								</tr>
