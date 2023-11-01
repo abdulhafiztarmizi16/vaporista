@@ -11,6 +11,10 @@
 
     <title>Vaporista</title>
 
+    <!-- favicon -->
+    <link rel="icon" href="<?= base_url('assets/') ?>img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url('assets/') ?>img/icon.png" type="image/x-icon">
+
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url('assets/template/') ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- icon -->

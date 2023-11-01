@@ -10,8 +10,8 @@
 	<title>Vaporista</title>
 
 	<!-- Favicons -->
-	<!-- <link href="<?= base_url('assets/') ?>img/logo.png" rel="icon"> -->
-	<link rel="shortcut icon" href="<?= base_url('assets/template/') ?>images/icon.png">
+	<link rel="icon" href="<?= base_url('assets/') ?>img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url('assets/') ?>img/icon.png" type="image/x-icon">
 
 	<link href="<?= base_url('assets/') ?>img/apple-touch-icon.png" rel="apple-touch-icon">
 
