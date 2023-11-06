@@ -48,16 +48,6 @@
                     </div>
                 </div>
 
-                <?php
-                // Sort array produk berdasarkan tanggal rilis (anda harus mengganti "tanggal_rilis" dengan nama kolom yang sesuai dalam array $kue)
-                usort($kue, function ($a, $b) {
-                    return strtotime($b['tanggal']) - strtotime($a['tanggal']);
-                });
-
-                // Batasi hasilnya hanya 6 produk terbaru
-                $produk_terbaru = array_slice($kue, 0, 6);
-                ?>
-
                 <?php $i = 1; ?>
                 <?php foreach ($produk_terbaru as $us) : ?>
                     <div class="col-md-4">

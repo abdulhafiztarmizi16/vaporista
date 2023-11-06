@@ -25,11 +25,27 @@ class Home extends CI_Controller
 		$data['kategori'] = $this->Kategori_model->get();
 		$data['jlh'] = $this->Keranjang_model->jumlah();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+		// Panggil fungsi filter produk terbaru
+		$data['produk_terbaru'] = $this->filterLatestProduct($data['kue']);
+
 		$this->load->view("layout/user_header", $data);
 		$this->load->view('landingPage/vw_home', $data);
 		$this->load->view('layout/user_footer', $data);
 
 	}
+
+	public function filterLatestProduct($kue) {
+		// Sort array produk berdasarkan tanggal rilis
+		usort($kue, function ($a, $b) {
+			return strtotime($b['tanggal']) - strtotime($a['tanggal']);
+		});
+	
+		// Batasi hasilnya hanya 6 produk terbaru
+		$produk_terbaru = array_slice($kue, 0, 6);
+		return $produk_terbaru;
+	}
+
 	public function produk()
 	{
 		$data['kue'] = $this->Kue_model->get();
