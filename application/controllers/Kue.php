@@ -178,6 +178,17 @@ class Kue extends CI_Controller
 			redirect('Kue');
 		}
 	}
+	public function hapus($id)
+	{
+		$this->Kue_model->delete($id);
+		$error = $this->db->error();
+		if ($error['code'] != 0) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon fas fa-info-circle"></i>Data produk poin tidak dapat dihapus (sudah berelasi)!</div>');
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fas fa-check-circle"></i>Data produk poin Berhasil Dihapus!</div>');
+		}
+		redirect('Kue');
+	}
 
 	function detail($id)
 	{
@@ -192,15 +203,5 @@ class Kue extends CI_Controller
 		$this->load->view("layout/footer");
 	}
 
-	public function hapus($id)
-	{
-		$this->Kue_model->delete($id);
-		$error = $this->db->error();
-		if ($error['code'] != 0) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon fas fa-info-circle"></i>Data produk poin tidak dapat dihapus (sudah berelasi)!</div>');
-		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fas fa-check-circle"></i>Data produk poin Berhasil Dihapus!</div>');
-		}
-		redirect('Kue');
-	}
+	
 }

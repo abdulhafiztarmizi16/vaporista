@@ -11,7 +11,7 @@
 					</h1>
 				</div>
 			</div>
-				<div class="content-panel">
+			<div class="content-panel">
 				<div class="card-body shadow mb-4">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -58,6 +58,10 @@
 											<a href="<?= base_url('Kue/hapus/') . $us['id']; ?>" class="badge badge-danger">Hapus</a>
 											<a href="<?= base_url('Kue/edit/') . $us['id']; ?>" class="badge badge-warning">Edit</a>
 											<!-- <a href="<?= base_url('Kue/detail/') . $us['id']; ?>" class="badge badge-info">Detail</a> -->
+											<!-- button action -->
+											<!-- <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+											<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+											<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> -->
 										</td>
 									</tr>
 									<?php $i++; ?>

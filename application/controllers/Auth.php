@@ -40,7 +40,7 @@ class Auth extends CI_Controller
 					'id' => $user['id'],
 				];
 				$this->session->set_userdata($data);
-				if ($user['role'] == 'Admin') {
+				if ($user['role'] == 'Admin' || $user['role'] == 'Superadmin') {
 					redirect('Dashboard');
 				} else {
 					redirect('product');
@@ -59,8 +59,8 @@ class Auth extends CI_Controller
 		if ($this->session->userdata('email')) {
 			redirect('dashboard');
 		}
-		$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+			$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+			$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
 			'is_unique' => 'Email ini sudah terdaftar!',
 			'valid_email' => 'Email Harus Valid',
 			'required' => 'Email Wajib di isi'

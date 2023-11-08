@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/vaporista/';
-// $config['base_url'] = "http://localhost/ardi_ci" . $_SERVER['HTTP_HOST'] .
+// $config['base_url'] = 'http://localhost/vaporista/' . $_SERVER['HTTP_HOST'] .
 // 	str_replace(
 // 		basename($_SERVER['SCRIPT_NAME']),
 // 		"",
@@ -277,7 +277,11 @@ $config['log_file_permissions'] = 0644;
 | codes to set your own date formatting
 |
 */
-$config['log_date_format'] = 'Y-m-d H:i:s';
+$config['log_date_format'] = 'Y-m-d H:i';
+
+// config.php
+date_default_timezone_set('Asia/Jakarta'); // Ganti dengan zona waktu yang sesuai
+
 
 /*
 |--------------------------------------------------------------------------

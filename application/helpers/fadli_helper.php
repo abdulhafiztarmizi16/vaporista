@@ -7,7 +7,7 @@ function is_logged_in()
         redirect('auth');
     } else {
         $role = $ci->session->userdata('role');
-        if ($role != "Admin") {
+        if ($role != "Admin" && $role != "Superadmin") {
             redirect('profil');
         }
     }

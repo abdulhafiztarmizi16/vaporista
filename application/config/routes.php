@@ -60,6 +60,9 @@ $route['keranjang'] = 'Profil/detail';
 $route['pembelian'] = 'Profil/pembelian';
 $route['pertukaran'] = 'Profil/pertukaran';
 
+$route['settings'] = 'Dashboard/set_user';
+
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -18,7 +18,7 @@
 									<input name="kategori" type="text" value="<?= set_value('kategori'); ?>" class="form-control" id="kategori" placeholder="Kategori Kue">
 									<?= form_error('kategori', '<small class="text-danger pl-3">', '</small>'); ?>
 								</div>
-								<a href="<?= base_url('Kategori') ?>" class="btn btn-danger">Tutup</a>
+								<a href="<?= site_url('Kategori') ?>" class="btn btn-danger">Tutup</a>
 								<button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Kategori Kue</button>
 							</form>
 						</div>

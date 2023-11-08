@@ -11,7 +11,7 @@
 
 	<!-- Favicons -->
 	<link rel="icon" href="<?= base_url('assets/') ?>img/icon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="<?= base_url('assets/') ?>img/icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="<?= base_url('assets/') ?>img/icon.png" type="image/x-icon">
 
 	<link href="<?= base_url('assets/') ?>img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -100,7 +100,7 @@
 MAIN SIDEBAR MENU
 *********************************************************************************************************************************************************** -->
 		<!--sidebar start-->
-		<?php if ($user['role'] == 'Admin') : ?>
+		<?php if ($user['role'] == 'Admin' || $user['role'] == 'Superadmin') : ?>
 			<aside>
 				<div id="sidebar" class="nav-collapse">
 					<!-- sidebar menu start -->
@@ -149,6 +149,29 @@ MAIN SIDEBAR MENU
 								<span>Penukaran Poin</span>
 							</a>
 						</li>
+						<!-- dengan menu dropdown -->
+						<!-- <li class="sub-menu">
+							<a href="#" data-toggle="collapse" data-target="#transaksi-dropdown">
+								<i class="fa fa-tasks"></i>
+								<span>Transaksi</span>
+							</a>
+							<ul class="sub collapse" id="transaksi-dropdown">
+								<li>
+									<a href="<?= site_url('Penjualan/') ?>">Penjualan</a>
+								</li>
+								<li>
+									<a href="<?= site_url('tukar_poin/') ?>">Penukaran Poin</a>
+								</li>
+							</ul>
+						</li> -->
+						<?php if ($user['role'] == 'Superadmin') : ?>
+							<li class="sub-menu">
+								<a href="<?= site_url('settings/') ?>">
+									<i class="fa fa-user"></i>
+									<span>User</span>
+								</a>
+							</li>
+						<?php endif; ?>
 					</ul>
 			</aside>
 		<?php endif; ?>
