@@ -24,6 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/vaporista/';
+// $config['base_url'] = 'https://88dd-114-125-8-7.ngrok-free.app/vaporista/';
 // $config['base_url'] = 'http://localhost/vaporista/' . $_SERVER['HTTP_HOST'] .
 // 	str_replace(
 // 		basename($_SERVER['SCRIPT_NAME']),
