@@ -28,7 +28,7 @@ http://localhost/vaporista/
 
 ## Tampilan 
 - Tampilan product
-![Screenshot_Product](ss_produk.png)
+![Screenshot_Product](ss_product.png)
 - Tampilan login
 ![Screenshot_Login](ss_login.png)
 
